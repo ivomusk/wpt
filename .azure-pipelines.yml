@@ -54,7 +54,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/affected_tests.yml
     parameters:
       checkoutCommit: 'HEAD^1'
@@ -75,7 +75,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/checkout.yml
   - script: |
       set -eux -o pipefail
@@ -96,7 +96,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/install_fonts.yml
   - template: tools/ci/azure/install_certs.yml
@@ -135,7 +135,7 @@ jobs:
       toxenv: py38
 
 - job: tools_unittest_mac_py311
-  displayName: 'tools/ unittests: macOS + Python 3.12'
+  displayName: 'tools/ unittests: macOS + Python 3.13'
   dependsOn: decision
   condition: dependencies.decision.outputs['test_jobs.tools_unittest']
   pool:
@@ -143,7 +143,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/tox_pytest.yml
     parameters:
@@ -167,7 +167,7 @@ jobs:
       toxenv: py38
 
 - job: wptrunner_unittest_mac_py311
-  displayName: 'tools/wptrunner/ unittests: macOS + Python 3.12'
+  displayName: 'tools/wptrunner/ unittests: macOS + Python 3.13'
   dependsOn: decision
   condition: dependencies.decision.outputs['test_jobs.wptrunner_unittest']
   pool:
@@ -175,7 +175,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/tox_pytest.yml
     parameters:
@@ -203,7 +203,7 @@ jobs:
       toxenv: py38
 
 - job: wpt_integration_mac_py311
-  displayName: 'tools/wpt/ tests: macOS + Python 3.12'
+  displayName: 'tools/wpt/ tests: macOS + Python 3.13'
   dependsOn: decision
   condition: dependencies.decision.outputs['test_jobs.wpt_integration']
   pool:
@@ -212,7 +212,7 @@ jobs:
   # full checkout required
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/install_chrome.yml
   - template: tools/ci/azure/install_firefox.yml
   - template: tools/ci/azure/update_hosts.yml
@@ -242,7 +242,7 @@ jobs:
       toxenv: py38
 
 - job: tools_unittest_win_py311
-  displayName: 'tools/ unittests: Windows + Python 3.12'
+  displayName: 'tools/ unittests: Windows + Python 3.13'
   dependsOn: decision
   condition: dependencies.decision.outputs['test_jobs.tools_unittest']
   pool:
@@ -250,7 +250,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
       addToPath: false
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/tox_pytest.yml
@@ -276,7 +276,7 @@ jobs:
       toxenv: py38
 
 - job: wptrunner_unittest_win_py311
-  displayName: 'tools/wptrunner/ unittests: Windows + Python 3.12'
+  displayName: 'tools/wptrunner/ unittests: Windows + Python 3.13'
   dependsOn: decision
   condition: dependencies.decision.outputs['test_jobs.wptrunner_unittest']
   pool:
@@ -284,7 +284,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
       addToPath: false
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/tox_pytest.yml
@@ -315,7 +315,7 @@ jobs:
       toxenv: py38
 
 - job: wpt_integration_win_py311
-  displayName: 'tools/wpt/ tests: Windows + Python 3.12'
+  displayName: 'tools/wpt/ tests: Windows + Python 3.13'
   dependsOn: decision
   condition: dependencies.decision.outputs['test_jobs.wpt_integration']
   pool:
@@ -324,7 +324,7 @@ jobs:
   # full checkout required
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   # currently just using the outdated Chrome/Firefox on the VM rather than
   # figuring out how to install Chrome Dev channel on Windows
   # - template: tools/ci/azure/install_chrome.yml
@@ -350,7 +350,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/system_info.yml
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/install_certs.yml
@@ -386,7 +386,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/system_info.yml
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/install_certs.yml
@@ -422,7 +422,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/install_certs.yml
   - template: tools/ci/azure/install_edge.yml
@@ -456,7 +456,7 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.12'
+      versionSpec: '3.13'
   - template: tools/ci/azure/checkout.yml
   - template: tools/ci/azure/install_certs.yml
   - template: tools/ci/azure/color_profile.yml
